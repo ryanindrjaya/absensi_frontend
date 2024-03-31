@@ -72,6 +72,7 @@ const AdminDashboardPage = () => {
     adminService
       .postAttendance(payload)
       .then(() => {
+        getListLessonSchedule();
         Swal.fire({
           title: "Absensi Berhasil!",
           text: "Terima kasih sudah melakukan absensi",
@@ -113,7 +114,7 @@ const AdminDashboardPage = () => {
         pagination={pagination}
         renderRowActions={(row: any) => [
           <Box key={row?.original?.id} className="flex flex-wrap items-center justify-center gap-[8px] w-[300px]">
-            {row?.original?.isAlreadyLoggedIn ? (
+            {row?.original?.teacherAttended ? (
               <Chip
                 label="Sudah Absen"
                 sx={{
