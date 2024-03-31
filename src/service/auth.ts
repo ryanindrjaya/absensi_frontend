@@ -1,12 +1,12 @@
-import Http from "@absensi/utils/fetch"
+import Http from "@absensi/utils/fetch";
 
 const authService = {
-    login(email: string, password: string) {
-        return Http.post('auth/login', {
-            email: email,
-            password: password
-        })
-    }
-}
+  login(username: string, password: string) {
+    return Http.post("auth/login", {
+      username: username,
+      password: password,
+    });
+  },
+};
 
 export default authService;
